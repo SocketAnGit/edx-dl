@@ -732,7 +732,8 @@ def download_youtube_url(url, filename, headers, args):
     """
     logging.info('Downloading video with URL %s from YouTube.', url)
     video_format_option = args.format + '/mp4' if args.format else 'mp4'
-    cmd = YOUTUBE_DL_CMD + ['-o', filename, '-f', video_format_option]
+    cmd = YOUTUBE_DL_CMD + ['-o', filename, '-f', video_format_option, '--proxy'
+    , '127.0.0.1:38251']
 
     if args.subtitles:
         cmd.append('--all-subs')
